@@ -304,10 +304,14 @@ function mouseClicked() {
   handleClickOrTouch(mouseX, mouseY);
 }
 
+// Unified function to handle both click and touch events
 function touchStarted() {
-  // For mobile browsers like Safari and Chrome
-  handleClickOrTouch(touchX, touchY);
-  return false; // Prevent any default behavior like scrolling or zooming
+  if (touches.length > 0) {
+    let touchX = touches[0].x; // First touch point's X position
+    let touchY = touches[0].y; // First touch point's Y position
+    handleClickOrTouch(touchX, touchY);
+  }
+  return false; // Prevent default behavior like scrolling or zooming
 }
 
 // Unified function to handle both click and touch events
