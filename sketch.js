@@ -91,19 +91,6 @@ function drawGameScreen() {
   buttons.forEach((button) => button.show());
 }
 
-function mouseClicked() {
-  // Check if we are on the start screen and the start button is clicked
-  if (gameState === "start" && startButton.isClicked(mouseX, mouseY)) {
-    startGame(); // Start the game when the start button is clicked
-  } else if (gameState === "playing") {
-    buttons.forEach((button) => {
-      if (button.isClicked(mouseX, mouseY)) {
-        handleGuessInput(button.letter);
-      }
-    });
-  }
-}
-
 // Start the game and loop the sound
 function startGame() {
   gameState = "playing"; // Change the game state to 'playing'
@@ -309,5 +296,30 @@ class Button {
       mouseY > this.y &&
       mouseY < this.y + this.height
     );
+  }
+}
+
+function mouseClicked() {
+  // For desktop browsers, though not really used on mobile
+  handleClickOrTouch(mouseX, mouseY);
+}
+
+function touchStarted() {
+  // For mobile browsers like Safari and Chrome
+  handleClickOrTouch(touchX, touchY);
+  return false; // Prevent any default behavior like scrolling or zooming
+}
+
+// Unified function to handle both click and touch events
+function handleClickOrTouch(x, y) {
+  // Check if we are on the start screen and the start button is clicked
+  if (gameState === "start" && startButton.isClicked(x, y)) {
+    startGame(); // Start the game when the start button is clicked
+  } else if (gameState === "playing") {
+    buttons.forEach((button) => {
+      if (button.isClicked(x, y)) {
+        handleGuessInput(button.letter);
+      }
+    });
   }
 }
