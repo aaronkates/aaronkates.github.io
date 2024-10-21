@@ -26,8 +26,8 @@ let redirectTriggered = false; // Ensure we only trigger the redirect once
 
 
 function preload() {
-  sound = loadSound("instrumental.wav");
-  backgroundImage = loadImage("assets/images/cover.jpg");
+  sound = loadSound("https://aaronkates.github.io/instrumental.wav");
+  backgroundImage = loadImage("https://aaronkates.github.io/assets/images/cover.jpg");
 }
 
 function setup() {
