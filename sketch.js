@@ -32,6 +32,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  noLoop();
 
   // Create the start button (centered)
   startButton = new Button("Start", width / 2 - 50, height / 2 - 25, 100, 50);
@@ -44,6 +45,7 @@ function setup() {
 }
 
 function draw() {
+  clear();
   // Handle different game states
   if (gameState === "start") {
     drawStartScreen();
