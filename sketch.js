@@ -39,7 +39,7 @@ function setup() {
 
   // Set up the keyboard buttons and delete button
   createKeyboardButtons();
-  deleteButton = new Button("delete", width / 2 - 40, 750, 80, 25);
+  deleteButton = new Button("delete", width / 2 - 40, 650, 80, 25);
   buttons.push(deleteButton);
   textFont("Source Code Pro"); // Set the font to Source Code Pro
 }
