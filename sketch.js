@@ -26,7 +26,7 @@ let redirectTriggered = false; // Ensure we only trigger the redirect once
 
 
 function preload() {
-  sound = loadSound("instrumental.wav");
+  sound = loadSound("assets/audio/instrumental.wav");
   backgroundImage = loadImage("assets/images/cover.JPG");
 }
 
@@ -97,6 +97,8 @@ function drawGameScreen() {
 function startGame() {
   gameState = "playing"; // Change the game state to 'playing'
   sound.loop(); // Start looping the sound
+  loop(); // 
+  //console.log("Game started!"); // Add this for debugging
 }
 
 // Handle guess input from keyboard and mouse
@@ -292,17 +294,15 @@ class Button {
   }
 
   isClicked(mouseX, mouseY) {
-    return (
-      mouseX > this.x &&
-      mouseX < this.x + this.width &&
-      mouseY > this.y &&
-      mouseY < this.y + this.height
-    );
+    const isClicked = mouseX > this.x && mouseX < this.x + this.width && mouseY > this.y && mouseY < this.y + this.height;
+    //console.log("Button clicked:", isClicked); // Add this for debugging
+    return isClicked;
   }
 }
 
 function mouseClicked() {
-  handleClickOrTouch(mouseX, mouseY); // Handle both mouse clicks and touches the same way
+  //console.log("Mouse clicked at:", mouseX, mouseY); // Add this for debugging
+  handleClickOrTouch(mouseX, mouseY); 
 }
 
 function touchStarted() {
