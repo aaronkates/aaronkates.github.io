@@ -302,21 +302,17 @@ class Button {
 }
 
 function mouseClicked() {
-  // For desktop browsers, though not really used on mobile
-  handleClickOrTouch(mouseX, mouseY);
+  handleClickOrTouch(mouseX, mouseY); // Handle both mouse clicks and touches the same way
 }
 
-// Unified function to handle both click and touch events
 function touchStarted() {
   if (touches.length > 0) {
-    let touchX = touches[0].x; // First touch point's X position
-    let touchY = touches[0].y; // First touch point's Y position
-    handleClickOrTouch(touchX, touchY);
+    handleClickOrTouch(touches[0].x, touches[0].y); // Get the first touch point
   }
-  return false; // Prevent default behavior like scrolling or zooming
+  return false; // Prevent default behavior like scrolling or zooming in mobile browsers
 }
 
-// Unified function to handle both click and touch events
+// A unified function to handle both click and touch events
 function handleClickOrTouch(x, y) {
   // Check if we are on the start screen and the start button is clicked
   if (gameState === "start" && startButton.isClicked(x, y)) {
