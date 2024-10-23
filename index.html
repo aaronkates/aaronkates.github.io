@@ -9,14 +9,20 @@
     <title>wordle</title>
     <style>
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Source Code Pro', monospace;
-        }
+        html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent page from scrolling */
+  touch-action: manipulation; /* Disable double-tap zoom and gestures */
+  -webkit-user-select: none; /* Disable text selection for Safari/Chrome */
+  user-select: none; /* Disable text selection for all browsers */
+  -webkit-tap-highlight-color: transparent; /* Remove the grey tap highlight on mobile */
+}
+
+canvas {
+  display: block;
+  touch-action: manipulation; /* Ensure proper touch behavior */
+}
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
