@@ -309,7 +309,7 @@ function touchStarted() {
   if (touches.length > 0) {
     handleClickOrTouch(touches[0].x, touches[0].y); // Get the first touch point
   }
-  //return false; // Prevent default behavior like scrolling or zooming in mobile browsers
+  return false; // Prevent default behavior like scrolling or zooming in mobile browsers
 }
 
 // A unified function to handle both click and touch events
