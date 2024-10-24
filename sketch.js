@@ -96,9 +96,19 @@ function drawGameScreen() {
 // Start the game and loop the sound
 function startGame() {
   gameState = "playing"; // Change the game state to 'playing'
-  sound.loop(); // Start looping the sound
-  loop(); // 
-  console.log("Game started!"); // Add this for debugging
+
+  // Ensure the audio context is resumed
+  let audioContext = getAudioContext();
+  if (audioContext.state !== 'running') {
+    audioContext.resume().then(() => {
+      sound.loop(); // Start looping the sound
+    });
+  } else {
+    sound.loop(); // Start looping the sound
+  }
+
+  loop(); // Resume the draw loop so the game screen is rendered
+  console.log("Game started!");
 }
 
 // Handle guess input from keyboard and mouse
@@ -316,8 +326,10 @@ function touchStarted() {
 function handleClickOrTouch(x, y) {
   // Check if we are on the start screen and the start button is clicked
   if (gameState === "start" && startButton.isClicked(x, y)) {
-    startGame(); // Start the game when the start button is clicked
+    // Call startGame to start the game and play the sound
+    startGame(); 
   } else if (gameState === "playing") {
+    // Check for key/button interactions
     buttons.forEach((button) => {
       if (button.isClicked(x, y)) {
         handleGuessInput(button.letter);
