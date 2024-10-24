@@ -82,7 +82,7 @@ function drawEndScreen() {
     redirectTriggered = true; // Prevent multiple redirects
     setTimeout(function() {
       window.location.href = "https://artists.landr.com/055855869807"; // Redirect to the provided link
-    }, 2500); // 2.5-second delay
+    }, 1000); // 1-second delay
   }
 }
 
