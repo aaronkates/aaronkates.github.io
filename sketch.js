@@ -246,9 +246,9 @@ function assignLetterToGrid(i, j, letter) {
 
 function createKeyboardButtons() {
   let buttonLayout = [
-    { rowLength: 10, xOffset: -160, yOffset: 500 },
-    { rowLength: 9, xOffset: -140, yOffset: 550 },
-    { rowLength: 7, xOffset: -110, yOffset: 600 },
+    { rowLength: 10, xOffset: -160, yOffset: 300 },
+    { rowLength: 9, xOffset: -140, yOffset: 350 },
+    { rowLength: 7, xOffset: -110, yOffset: 400 },
   ];
 
   let letters = "qwertyuiopasdfghjklzxcvbnm";
