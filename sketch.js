@@ -326,11 +326,18 @@ function touchStarted() {
 function handleClickOrTouch(x, y) {
   // Check if we are on the start screen and the start button is clicked
   if (gameState === "start" && startButton.isClicked(x, y)) {
-    // Call startGame to start the game and play the sound
-    sound.loop();
-    startGame(); 
+    // Ensure audio context is resumed for mobile browsers
+    userStartAudio(); // This explicitly starts audio context on mobile
+    let audioContext = getAudioContext();
+
+    audioContext.resume().then(() => {
+      console.log("Audio context resumed:", audioContext.state);
+      sound.loop(); // Start looping the sound immediately within the click
+    }).catch(err => console.log("Error resuming audio context:", err));
+
+    gameState = "playing"; // Change game state to 'playing'
+    loop(); // Start the draw loop to render the game screen
   } else if (gameState === "playing") {
-    // Check for key/button interactions
     buttons.forEach((button) => {
       if (button.isClicked(x, y)) {
         handleGuessInput(button.letter);
