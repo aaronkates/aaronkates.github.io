@@ -1,10 +1,10 @@
 let words = ["take", "break", "back", "track"];
 
 let precedingPhrases = [
-  "if it gives you can bet its gonna",
-  "if it bends you can bet its gonna",
-  "if its gone you can bet its coming",
-  "if you're wrong than you're on the right",
+  "if it gives, you can bet its gonna",
+  "if it bends, you can bet its gonna",
+  "if its gone, you can bet its coming",
+  "if you're wrong, then you're on the right",
 ];
 
 let currentWordIndex = 0;
