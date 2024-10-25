@@ -327,6 +327,7 @@ function handleClickOrTouch(x, y) {
   // Check if we are on the start screen and the start button is clicked
   if (gameState === "start" && startButton.isClicked(x, y)) {
     // Call startGame to start the game and play the sound
+    sound.loop();
     startGame(); 
   } else if (gameState === "playing") {
     // Check for key/button interactions
