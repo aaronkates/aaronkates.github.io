@@ -181,7 +181,7 @@ function displayScoreAndPhrase() {
   fill(255);
   textSize(15);
   textAlign(CENTER, CENTER);
-  text("score: " + points, width / 2, 60);
+  text("score: " + points, width / 2, 500);
   text(currentPhrase, width / 2, 40);
 }
 
